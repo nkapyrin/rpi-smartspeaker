@@ -23,15 +23,15 @@
 # Предварительная настройка rPi
 
 Чтобы подготовить новую платформу к использованию, на SD карту (16 Gb, но подойдёт всё что больше 5) был установлен образ системы Raspbian Stretch (https://www.raspberrypi.org/downloads/raspbian/)
-* $ lsblk
-* $ umount /dev/mmcblk0p1
-* $ umount /dev/mmcblk0p2
-* $ sudo dd bs=4M if=2018-04-18-raspbian-stretch.img of=/dev/mmcblk0 (длится около 7 минут)
+* lsblk
+* umount /dev/mmcblk0p1
+* umount /dev/mmcblk0p2
+* sudo dd bs=4M if=2018-04-18-raspbian-stretch.img of=/dev/mmcblk0 (длится около 7 минут)
 
 Затем систему необходимо запустить с HDMI-монитором, клавиатурой и мышью, поскольку SSH по-умолчанию выключен. На запущенной системе, в прогармме raspi-config (вызвать из терминала), первым делом был включён SSH (Interfacing -> SSH...) и расширено доступное системе место до всего объёма SD-карточки (Advanced -> Extend partition...). SSH-подключение по умолчанию возможно с логином pi и паролем raspberry.
 
 Затем нужно установить пакеты для распознавания и синтеза речи:
-* $ sudo apt-get install festival festvox_ru pocketsphinx pocketsphinx-en-us
+* sudo apt-get install festival festvox_ru pocketsphinx pocketsphinx-en-us
 
 Система настроена на синтез русского языка и на распознавание английского, но использование русского словаря очень замедляет программу pocketsphinx (с 10 секунд для 1-2-секундного распознавания до 1-2 минут), поэтому пока не будет найдет или сделан оптимизированный словарь, будем мириться с лингвистическими ограничениями.
 
